@@ -9,9 +9,13 @@ class Genetic:
         return generatedRadnomNumber
 
     def initRandomPopulation(self):
+        # sum = 0
         for i in range(self.generateRandomPopulationSize()):
             gen = Gen.Gen(i)
             self.population.append(gen)
+            # sum += gen.get_adaptation()
+
+        return self.population
 
     def initPopulation(self, limit):
         for i in range(limit):
@@ -51,11 +55,38 @@ class Genetic:
         sizeOfListToRank = len(listToRank)
         for i in range(sizeOfListToRank):
             for j in range(0, sizeOfListToRank - i - 1):
-                if listToRank[j] > listToRank[j + 1]:
+                if listToRank[j] < listToRank[j + 1]:
                     listToRank[j], listToRank[j + 1] = listToRank[j + 1], listToRank[j]
-        return listToRank[:sizeOfListToRank - 1]
+        return listToRank[:10]
 
-    def runSingleStepOfAlghoritm(self, population):
-        size = len(population)
-        for i in range(size):
-            self.ranking(population[i])
+    def runAlgorithm(self, population, generations):
+        sizeOfPopulation = len(population)
+        for g in range(generations):
+            for i in range(sizeOfPopulation):
+                self.ranking(population[i])
+                population[i] = self.ranking(population[i])
+        result = self.findTheStrongestPopulation(population)
+        return result
+
+    def findTheStrongestPopulation(self, populations):
+        strongest = 0
+        strongestPopulation = 0
+        for p in populations:
+            candidate = self.calcAdaptation(p)
+            if candidate >= strongest:
+                strongest = candidate
+                strongestPopulation = p
+        print('-------------------------------------------')
+        print(strongestPopulation)
+        print('strongest population with adpt %d' % strongest)
+        print('-------------------------------------------')
+        return strongestPopulation
+
+    def calcAdaptation(self, population):
+        gen = Gen.Gen(0)
+        sizeOfPopulation = len(population)
+        sum = 0
+        for i in range(sizeOfPopulation):
+            gen = population[i]
+            sum += gen.get_adaptation()
+        return sum
