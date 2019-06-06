@@ -1,6 +1,8 @@
 from mpi4py import MPI
+import sys
 import Genetic
 
+# size = int(sys.argv[1])
 size = 100
 sizeOfRanges = 10
 generations = 5
@@ -8,8 +10,6 @@ generations = 5
 genetic = Genetic.Genetic()
 genetic.initPopulation(size)
 listOfDividedPopulations = genetic.dividePopulation(10)
-
-# genetic.findTheStrongestPopulation(listOfDividedPopulations)
 
 comm = MPI.COMM_WORLD
 rank = comm.rank
