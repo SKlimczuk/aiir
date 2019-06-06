@@ -57,22 +57,30 @@ class Genetic:
             for j in range(0, sizeOfListToRank - i - 1):
                 if listToRank[j] < listToRank[j + 1]:
                     listToRank[j], listToRank[j + 1] = listToRank[j + 1], listToRank[j]
-        return listToRank[:sizeOfListToRank - 1]
+        return listToRank[:10]
 
     def runAlgorithm(self, population, generations):
         sizeOfPopulation = len(population)
         for g in range(generations):
             for i in range(sizeOfPopulation):
                 self.ranking(population[i])
+                population[i] = self.ranking(population[i])
+        result = self.findTheStrongestPopulation(population)
+        return result
 
     def findTheStrongestPopulation(self, populations):
         strongest = 0
+        strongestPopulation = 0
         for p in populations:
             candidate = self.calcAdaptation(p)
             if candidate >= strongest:
                 strongest = candidate
+                strongestPopulation = p
+        print('-------------------------------------------')
+        print(strongestPopulation)
         print('strongest population with adpt %d' % strongest)
-        return strongest
+        print('-------------------------------------------')
+        return strongestPopulation
 
     def calcAdaptation(self, population):
         gen = Gen.Gen(0)
