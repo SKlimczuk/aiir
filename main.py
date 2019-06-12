@@ -43,6 +43,8 @@ if rank == 0:
         if genetic.calcAdaptation(populationToCompare) >= highestAdaptation:
             strongestPopulation = populationToCompare
             highestAdaptation = genetic.calcAdaptation(strongestPopulation)
+
+    genetic.printResultToFile(strongestPopulation)
 else:
     print('slave rank', rank, ', with name', name)
     data = comm.recv(source=0)

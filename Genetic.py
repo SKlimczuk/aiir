@@ -36,7 +36,6 @@ class Genetic:
         else:
             print("Population is not initialized !")
 
-    # ---------------------------------------------------- this will be the part to do on nodes
     def mutate(self, listToMutate):
         genA = Gen.Gen(0)
         size = len(listToMutate)
@@ -90,3 +89,10 @@ class Genetic:
             gen = population[i]
             sum += gen.get_adaptation()
         return sum
+
+    def printResultToFile(self, result):
+        file = open('result', 'w')
+        for line in result:
+            lineToWrite = str(line)
+            file.writelines(lineToWrite + "\n")
+        file.close()

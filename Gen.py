@@ -10,7 +10,7 @@ class Gen:
         self.adaptation = random.randint(1, 10000)
 
     def __repr__(self):
-        return '(Gen:{},{})'.format(self.uid, self.adaptation)
+        return '(id:{}, adapt:{})'.format(self.uid, self.adaptation)
 
     def __eq__(self, other):
         if isinstance(other, self.__class__):
