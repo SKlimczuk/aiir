@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a2b9b40-df3d-496f-b2ac-622387a93ce0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/hostfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Genetic.py" beforeDir="false" afterPath="$PROJECT_DIR$/Genetic.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/result.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result" beforeDir="false" afterPath="$PROJECT_DIR$/result" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+            <state relative-caret-position="576">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -66,7 +60,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="260" />
     <option name="y" value="60" />
     <option name="width" value="1400" />
@@ -227,16 +221,15 @@
       <workItem from="1559665739535" duration="7900000" />
       <workItem from="1559756479740" duration="412000" />
       <workItem from="1559818162135" duration="14450000" />
-      <workItem from="1560358445294" duration="8743000" />
+      <workItem from="1560358445294" duration="12025000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34957000" />
+    <option name="totallyTimeSpent" value="38239000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="31" width="1920" height="1049" extended-state="7" />
-    <editor active="true" />
+    <frame x="0" y="31" width="1920" height="1049" extended-state="6" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49837664" visible="true" weight="0.18956336" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -336,8 +329,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+        <state relative-caret-position="576">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

@@ -9,11 +9,9 @@ class Genetic:
         return generatedRadnomNumber
 
     def initRandomPopulation(self):
-        # sum = 0
         for i in range(self.generateRandomPopulationSize()):
             gen = Gen.Gen(i)
             self.population.append(gen)
-            # sum += gen.get_adaptation()
 
         return self.population
 
@@ -75,10 +73,6 @@ class Genetic:
             if candidate >= strongest:
                 strongest = candidate
                 strongestPopulation = p
-        print('-------------------------------------------')
-        print(strongestPopulation)
-        print('strongest population with adpt %d' % strongest)
-        print('-------------------------------------------')
         return strongestPopulation
 
     def calcAdaptation(self, population):

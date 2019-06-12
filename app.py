@@ -7,14 +7,20 @@ mydb = myclient["triage"]
 mycol = mydb["sizes"]
 x = mycol.find_one()
 
-nodes = '5'
+if x["numberOfComputers"] <= 0:
+    nodes = str(5)
+else:
+    nodes = str(x["numberOfComputers"])
 
 if x["sizeOfPopulation"] <= 0:
-    sizeOfPopulation = 10000
+    sizeOfPopulation = str(10000)
 else:
     sizeOfPopulation = str(x["sizeOfPopulation"])
 
-amountOfGenerations = '5'
+if x["amountOfGeneration"] <= 0:
+    amountOfGenerations = str(5)
+else:
+    amountOfGenerations = str(x["amountOfGeneration"])
 
 os.system("mpiexec -np " + nodes + " -hostfile hostfile python main.py " + sizeOfPopulation + " " + amountOfGenerations)
 
@@ -24,6 +30,3 @@ with open('result', 'r') as f:
 mycol = mydb["numbers"]
 for x in resultList:
     mycol.update({'scoreId': 0}, {'$push': {'score': x}})
-
-def update_tags(new_score):
-    coll.update({'scoreId': 0}, {'$push': {'score': new_score}})
