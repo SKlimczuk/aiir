@@ -1,28 +1,32 @@
-from flask import Flask, render_template, request
 import os
+import pymongo
 
-app = Flask(__name__)
+myclient = pymongo.MongoClient("mongodb+srv://namidad:Namidad12@triage-su1vl.gcp.mongodb.net/test?retryWrites=true&w=majority")
+mydb = myclient["triage"]
 
+mycol = mydb["sizes"]
+x = mycol.find_one()
 
-@app.route('/')
-def homepage():
-    return render_template("index.html")
+if x["numberOfComputers"] <= 0:
+    nodes = str(5)
+else:
+    nodes = str(x["numberOfComputers"])
 
+if x["sizeOfPopulation"] <= 0:
+    sizeOfPopulation = str(10000)
+else:
+    sizeOfPopulation = str(x["sizeOfPopulation"])
 
-@app.route('/result', methods=['GET', 'POST'])
-def result():
-    if request.method == 'GET':
-        return render_template("result.html")
-    if request.method == 'POST':
-        sizeOfStartingPopulation = request.form['sizeOfPopulation']
-        runMpiApp(sizeOfStartingPopulation)
-        return render_template("result.html")
-    return render_template("result.html")
+if x["amountOfGeneration"] <= 0:
+    amountOfGenerations = str(5)
+else:
+    amountOfGenerations = str(x["amountOfGeneration"])
 
+os.system("mpiexec -np " + nodes + " -hostfile hostfile python main.py " + sizeOfPopulation + " " + amountOfGenerations)
 
-def runMpiApp(sizeOfStartingPopulation):
-    os.system("mpiexec -np 3 python main.py")
-    # os.system("mpiexec -np 3 python main.py " + sizeOfStartingPopulation)
+with open('result', 'r') as f:
+    resultList = [line.strip() for line in f]
 
-if __name__ == '__main__':
-    app.run()
+mycol = mydb["numbers"]
+for x in resultList:
+    mycol.update({'scoreId': 0}, {'$push': {'score': x}})
