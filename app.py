@@ -7,7 +7,7 @@ mydb = myclient["triage"]
 mycol = mydb["sizes"]
 x = mycol.find_one()
 
-if x["numberOfComputers"] <= 0:
+if x["numberOfComputers"] <= 1:
     nodes = str(5)
 else:
     nodes = str(x["numberOfComputers"])
