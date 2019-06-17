@@ -1,3 +1,5 @@
+komenda do wykonania programu : python app.py
+
 Opis komunikacji master – węzły obliczeniowe.
 
 Do komunikacji pomiędzy serwerem (masterem) a węzłami obliczeniowymi (slave) wykorzystaliśmy dwa laptopy z systemem Linux (Ubuntu oraz Pop!_OS). Poniżej kroki, które wykonaliśmy na systemach.
